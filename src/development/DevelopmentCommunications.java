@@ -27,3 +27,6 @@ public class DevelopmentCommunications {
 		}
 	}
 }
+
+
+//are we live on eclipse?
