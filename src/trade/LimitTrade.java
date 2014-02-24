@@ -41,13 +41,13 @@ public class LimitTrade extends Trade implements Comparable<LimitTrade>{
 	/* These two methods compare the LimitTrade objects in the way that if it is a buy it considers it as lower, the larger the price is
 	** And if it is a sell it considers it lower, the smaller the price is 
 	*/
-	public int compareBuy(LimitTrade o)
+	private int compareBuy(LimitTrade o)
 	{
 		if (this.price < o.getPrice()){return -1;}
 		else if (this.price > o.getPrice()){return 1;}
 		else {return 0;}
 	}
-	public int compareSell(LimitTrade o)
+	private int compareSell(LimitTrade o)
 	{
 		if (this.price > o.getPrice()){return -1;}
 		else if (this.price < o.getPrice()){return 1;}
