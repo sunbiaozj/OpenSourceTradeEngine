@@ -31,5 +31,4 @@ public class OrderListManager {
 			System.out.println("Buy Book" + buyBook.toStringTemp());
 		}
 	}
-
 }
