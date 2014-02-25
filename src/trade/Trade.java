@@ -24,7 +24,7 @@ public class Trade {
 	// This method takes in a trade and an amount and returns an ArrayList of Trade with the first element
 	// being a new trade (with the same txID) of the amount passed, and the second element of the ArrayList
 	// being a new trade (with the same txID) with it's amount being what is left over
-	public ArrayList<Trade> splitTrade(Trade trade, int amount)
+	public ArrayList<Trade> splitTrade(MarketTrade trade, int amount)
 	{
 		Trade trade1 = new MarketTrade(amount, trade.getBuySell());
 		Trade trade2 = new MarketTrade(trade.getAmount()-amount, trade.getBuySell());

@@ -22,12 +22,18 @@ public class OrderBook {
 			while(itr.hasNext())
 			{
 				LimitTrade nxt = itr.next();
-				if(nxt.getPrice() == newTrade.getPrice())
+				if(nxt.compareTo(newTrade)==0 && newTrade.getSplit())
+				{
+					itr.previous();
+					itr.add(newTrade);
+					break;
+				}
+				else if (nxt.compareTo(newTrade)==0 && (!newTrade.getSplit()))
 				{
 					itr.add(newTrade);
 					break;
 				}
-				else if (nxt.getPrice() > newTrade.getPrice())
+				else if (nxt.compareTo(newTrade)==1)
 				{
 					itr.previous();
 					itr.add(newTrade);
@@ -59,7 +65,7 @@ public class OrderBook {
 			split = OrderList.get(0).splitTrade(OrderList.get(0), tradeSize);
 			MatchedTrades.add(0,(LimitTrade)split.get(0));
 			OrderList.remove(0);
-			OrderList.add((LimitTrade)split.get(1));
+			addTrade((LimitTrade)split.get(1));
 			MatchedTrades.get(0).Match(marketTrade);
 			
 		}

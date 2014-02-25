@@ -10,7 +10,7 @@ public class OrderListManager {
 	
 	public static void main(String[] args) 
 	{
-		OrderBook buyBook = new OrderBook(true);
+		OrderBook buyBook = new OrderBook(false);
 		
 		boolean t = true;
 		while (t)
