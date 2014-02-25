@@ -13,7 +13,7 @@ public class DevelopmentCommunications {
 		devTrade.add(new LimitTrade(100,2, true));
 		devTrade.add(new LimitTrade(180,3, true));
 		devTrade.add(new LimitTrade(100,1, true));
-		devTrade.add(new MarketTrade(4,false));
+		devTrade.add(new MarketTrade(1,false));
 		devTrade.add(new LimitTrade(20,20, true));
 		devTrade.add(new LimitTrade(80,10, true));
 	}
@@ -27,6 +27,3 @@ public class DevelopmentCommunications {
 		}
 	}
 }
-
-
-//are we live on eclipse?

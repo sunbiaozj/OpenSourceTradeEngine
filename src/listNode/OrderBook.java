@@ -21,13 +21,13 @@ public class OrderBook {
 		else {
 			while(itr.hasNext())
 			{
-				Trade nxt = itr.next();
-				if(nxt.getAmount() == newTrade.getAmount())
+				LimitTrade nxt = itr.next();
+				if(nxt.getPrice() == newTrade.getPrice())
 				{
 					itr.add(newTrade);
 					break;
 				}
-				else if (nxt.getAmount() > newTrade.getAmount())
+				else if (nxt.getPrice() > newTrade.getPrice())
 				{
 					itr.previous();
 					itr.add(newTrade);
