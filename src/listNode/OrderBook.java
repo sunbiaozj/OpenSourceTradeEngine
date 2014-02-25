@@ -1,13 +1,11 @@
 package listNode;
 
-import java.util.ArrayList;	// To create the Array list of orders
 import java.util.*;
-
 import trade.*;	// Object to populate the ArrayList
 
 public class OrderBook {
 	
-	private ArrayList <LimitTrade> OrderList = new ArrayList <LimitTrade>();
+	private LinkedList <LimitTrade> OrderList = new LinkedList <LimitTrade>();
 	private ArrayList <LimitTrade> MatchedTrades = new ArrayList <LimitTrade>();
 	private boolean buysell;	//Holds whether the order book is a buy or sell order book, true is buy, false is sell
 	
@@ -18,8 +16,30 @@ public class OrderBook {
 	
 	public void addTrade(LimitTrade newTrade)
 	{
-		OrderList.add(0, newTrade);
-		Collections.sort(OrderList);
+		ListIterator<LimitTrade> itr = OrderList.listIterator();
+		if( OrderList.size() == 0) {OrderList.add(newTrade);}
+		else {
+			while(itr.hasNext())
+			{
+				Trade nxt = itr.next();
+				if(nxt.getAmount() == newTrade.getAmount())
+				{
+					itr.add(newTrade);
+					break;
+				}
+				else if (nxt.getAmount() > newTrade.getAmount())
+				{
+					itr.previous();
+					itr.add(newTrade);
+					break;
+				}
+				if(!itr.hasNext())
+				{
+					itr.add(newTrade);
+					break;
+				}
+			}
+		}
 	}
 	
 	public void addTrade(MarketTrade marketTrade)
