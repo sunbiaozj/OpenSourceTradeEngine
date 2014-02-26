@@ -82,7 +82,7 @@ public class OrderBook {
 		return buysell;
 	}
 	
-	public String toStringTemp()
+	public String toStringOB()
 	{
 		String ret = "";
 		
@@ -91,6 +91,24 @@ public class OrderBook {
 			ret = ret + "[Price = " + OrderList.get(i).getPrice() + ", Amount = " + OrderList.get(i).getAmount() + "]";
 		}
 		
+		return ret;
+	}
+	
+	public String toStringMatched()
+	{
+		String ret = "";
+		
+		for( int i = 0; i < MatchedTrades.size(); i++)
+		{
+			ret = ret + "[Trade 1 = " + MatchedTrades.get(i).gettxID();
+			
+			for (int j = 0; j < MatchedTrades.get(i).getMatched().size();j++)
+			{
+				int p = j + 2;
+				ret = ret + ", Trade " + p + " = " + MatchedTrades.get(i).getMatched().get(j).gettxID();
+			}
+		}
+		ret = ret + "]";
 		return ret;
 	}
 
