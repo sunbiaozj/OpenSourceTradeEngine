@@ -28,10 +28,8 @@ public class OrderListManager {
 				}
 				buff.remove(i);
 			}
-			System.out.println("Buy Book:");
-			System.out.println("Buy Book" + buyBook.toStringOB());
-			System.out.println("Matched Trades: ");
-			System.out.println("Matched Trades" + buyBook.toStringMatched());
+			System.out.println("Buy Book:" + buyBook.toStringOB());
+			System.out.println("Matched Trades:" + buyBook.toStringMatched());
 			
 		}
 	}
