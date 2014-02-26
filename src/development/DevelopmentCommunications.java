@@ -6,10 +6,11 @@ import trade.*;
 
 public class DevelopmentCommunications {
 	
-	private ArrayList<Trade> devTrade = new ArrayList<Trade>();
+	private ArrayList<Trade> devTrade;
 	
 	public DevelopmentCommunications()
 	{
+		devTrade = new ArrayList<Trade>();
 		devTrade.add(new LimitTrade(100,2, true));
 		devTrade.add(new LimitTrade(180,3, true));
 		devTrade.add(new LimitTrade(100,1, true));

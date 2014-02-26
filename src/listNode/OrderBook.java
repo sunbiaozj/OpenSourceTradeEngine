@@ -5,12 +5,14 @@ import trade.*;	// Object to populate the ArrayList
 
 public class OrderBook {
 	
-	private LinkedList <LimitTrade> OrderList = new LinkedList <LimitTrade>();
-	private ArrayList <LimitTrade> MatchedTrades = new ArrayList <LimitTrade>();
+	private LinkedList <LimitTrade> OrderList;
+	private ArrayList <LimitTrade> MatchedTrades;
 	private boolean buysell;	//Holds whether the order book is a buy or sell order book, true is buy, false is sell
 	
 	public OrderBook(boolean bs)
 	{
+		OrderList = new LinkedList <LimitTrade>();
+		MatchedTrades = new ArrayList <LimitTrade>();
 		buysell = bs;
 	}
 	

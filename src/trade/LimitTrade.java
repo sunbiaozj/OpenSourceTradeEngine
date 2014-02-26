@@ -4,11 +4,12 @@ import java.util.ArrayList;
 public class LimitTrade extends Trade implements Comparable<LimitTrade>{
 	
 	private int price;	// Holds the entry price for the trade
-	private ArrayList<MarketTrade> matched = new ArrayList<MarketTrade>();
+	private ArrayList<MarketTrade> matched;
 	
 	public LimitTrade(int Price,int Amount, boolean buysell )	// Constructor calls the superclass constructor and sets the price
 	{
 		super(Amount, buysell);
+		matched = new ArrayList<MarketTrade>();
 		price = Price;
 	}
 	
