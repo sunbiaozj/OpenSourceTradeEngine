@@ -6,11 +6,11 @@ import trade.*;
 
 public class DevelopmentCommunications {
 	
-	private ArrayList<Trade> devTrade;
+	private ArrayList<Order> devTrade;
 	
 	public DevelopmentCommunications()
 	{
-		devTrade = new ArrayList<Trade>();
+		devTrade = new ArrayList<Order>();
 		devTrade.add(new LimitTrade(100,2, true));
 		devTrade.add(new LimitTrade(180,3, true));
 		devTrade.add(new LimitTrade(100,1, true));
@@ -19,7 +19,7 @@ public class DevelopmentCommunications {
 		devTrade.add(new LimitTrade(80,10, true));
 	}
 	
-	public void getBuffer(ArrayList<Trade> ret)
+	public void getBuffer(ArrayList<Order> ret)
 	{
 		if (devTrade.size() > 0)
 		{

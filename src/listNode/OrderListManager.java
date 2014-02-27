@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class OrderListManager {
 	
 	private static Communications com = new Communications();
-	private static ArrayList<Trade> buff = new ArrayList<Trade>(); 
+	private static ArrayList<Order> buff = new ArrayList<Order>(); 
 	
 	public static void main(String[] args) 
 	{

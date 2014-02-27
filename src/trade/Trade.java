@@ -6,17 +6,16 @@ import java.util.ArrayList;
 /*	This class is the superclass of all trades and at this point only has the 
 *	amount of the trade in it and a method for subclasses to retrieve 
 */
-public class Trade {
+public class Trade extends Order {
 	
 	private int amount; 	// Holds the size of the trade
 	private String txID;	// Holds the trade ID in txID
-	private boolean buysell;	// Holds whether the trade is a buy (1) or a sell (0)
 	private boolean split;	// Holds whether a trade was split (and therefore has a sibling with the same txID or not (0) no, (1) yes.
 	
 	public Trade(int Amount, boolean BuySell) //Constructor sets the Amount and creates the txID
 	{
+		super(BuySell);
 		amount = Amount;
-		buysell = BuySell;
 		settxID(Amount);	// Calls private settxID method
 		split = false;
 	}
@@ -82,11 +81,6 @@ public class Trade {
 	public int getAmount() //Returns the amount of the trade
 	{
 		return amount;
-	}
-	
-	public boolean getBuySell()	// Returns whether the trade is a buy (1) or a sell (0)
-	{
-		return buysell;
 	}
 	
 	public boolean getSplit()
