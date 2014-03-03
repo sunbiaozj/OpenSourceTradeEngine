@@ -7,6 +7,7 @@ public class OrderBook {
 	
 	private LinkedList <LimitTrade> OrderList;
 	private ArrayList <LimitTrade> MatchedTrades;
+	private ArrayList <CloseLimitTrade> CancelledTrades;
 	private boolean buysell;	//Holds whether the order book is a buy or sell order book, true is buy, false is sell
 	
 	public OrderBook(boolean bs)
@@ -76,6 +77,21 @@ public class OrderBook {
 			MatchedTrades.add(0,OrderList.get(0));
 			OrderList.remove(0);
 			MatchedTrades.get(0).Match(marketTrade);
+		}
+	}
+	
+	public void addTrade(CloseLimitTrade closeLimitTrade)
+	{
+		ListIterator<LimitTrade> itr = OrderList.listIterator();
+		while(itr.hasNext())
+		{
+			LimitTrade next = itr.next();
+			if (next.gettxID() == closeLimitTrade.gettxID())
+			{
+				itr.remove();
+				CancelledTrades.add(closeLimitTrade)
+				break;
+			}
 		}
 	}
 	

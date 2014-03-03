@@ -26,6 +26,10 @@ public class OrderListManager {
 				{
 					buyBook.addTrade((LimitTrade) buff.get(i));
 				}
+				else if(buff.get(i) instanceof CloseLimitTrade)
+				{
+					buyBook.addTrade((CloseLimitTrade) buff.get(i));
+				}
 				buff.remove(i);
 			}
 			System.out.println("Buy Book:" + buyBook.toStringOB());
