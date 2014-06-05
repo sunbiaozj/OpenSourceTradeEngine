@@ -14,6 +14,7 @@ public class OrderBook {
 	{
 		OrderList = new LinkedList <LimitTrade>();
 		MatchedTrades = new ArrayList <LimitTrade>();
+		CancelledTrades = new ArrayList<CloseLimitTrade>();
 		buysell = bs;
 	}
 	
@@ -89,7 +90,8 @@ public class OrderBook {
 			if (next.gettxID() == closeLimitTrade.gettxID())
 			{
 				itr.remove();
-				CancelledTrades.add(closeLimitTrade)
+				closeLimitTrade.Match(next);
+				CancelledTrades.add(closeLimitTrade);
 				break;
 			}
 		}
