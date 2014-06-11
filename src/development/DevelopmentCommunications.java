@@ -17,8 +17,13 @@ public class DevelopmentCommunications {
 		devTrade.add(new MarketTrade(1,false));
 		devTrade.add(new LimitTrade(20,20, true));
 		devTrade.add(new LimitTrade(80,10, true));
+		
 		LimitTrade tx =(LimitTrade) devTrade.get(0);
-		devTrade.add(new CloseLimitTrade(tx.gettxID(),tx.getBuySell()));
+		String txID = tx.gettxID();
+		boolean bs = tx.getBuySell();
+		
+		devTrade.add(new CloseLimitTrade(txID, bs));
+		devTrade.add(new CloseLimitTrade(txID, bs));
 	}
 	
 	public void getBuffer(ArrayList<Order> ret)
