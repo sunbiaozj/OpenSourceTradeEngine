@@ -1,6 +1,8 @@
 package listNode;
 
 import java.util.*;
+
+import customExceptions.*;
 import trade.*;	// Object to populate the ArrayList
 
 public class OrderBook {
@@ -81,7 +83,7 @@ public class OrderBook {
 		}
 	}
 	
-	public void addTrade(CloseLimitTrade closeLimitTrade)
+	public void addTrade(CloseLimitTrade closeLimitTrade) throws TradeNotFoundException
 	{
 		ListIterator<LimitTrade> itr = OrderList.listIterator();
 		while(itr.hasNext())
@@ -94,6 +96,11 @@ public class OrderBook {
 				CancelledTrades.add(closeLimitTrade);
 				break;
 			}
+		}
+		
+		if(closeLimitTrade.getMatchedClose() == null)
+		{
+			throw new TradeNotFoundException("Trade to match the closeLimitTrade does not exist");
 		}
 	}
 	
