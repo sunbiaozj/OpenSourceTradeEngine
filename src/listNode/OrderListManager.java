@@ -19,27 +19,27 @@ public class OrderListManager {
 			com.getBuffer(buff);
 			for(int i = 0; i < buff.size();i++)
 			{
-				try 
+				if(buff.get(i) instanceof MarketTrade)
 				{
-					if(buff.get(i) instanceof MarketTrade)
-					{
-						buyBook.addTrade((MarketTrade) buff.get(i));
-					}
-					else if(buff.get(i) instanceof LimitTrade)
-					{
-						buyBook.addTrade((LimitTrade) buff.get(i));
-					}
-					else if(buff.get(i) instanceof CloseLimitTrade)
+					buyBook.addTrade((MarketTrade) buff.get(i));
+				}
+				else if(buff.get(i) instanceof LimitTrade)
+				{
+					buyBook.addTrade((LimitTrade) buff.get(i));
+				}
+				else if(buff.get(i) instanceof CloseLimitTrade)
+				{
+					try
 					{
 						buyBook.addTrade((CloseLimitTrade) buff.get(i));
 					}
-					buff.remove(i);
+					catch(TradeNotFoundException ex)
+					{
+						System.out.println(ex.getMessage());
+						System.exit(0);
+					}
 				}
-				catch (TradeNotFoundException ex)
-				{
-					System.out.println(ex.getMessage());
-					System.exit(0);
-				}
+				buff.remove(i);
 			}
 			System.out.println("Buy Book:" + buyBook.toStringOB());
 			System.out.println("Matched Trades:" + buyBook.toStringMatched());
