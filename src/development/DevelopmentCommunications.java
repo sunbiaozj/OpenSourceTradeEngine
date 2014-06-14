@@ -1,6 +1,7 @@
 package development;
 
 import java.util.ArrayList;
+import java.io.*;
 
 import trade.*;
 
@@ -23,7 +24,6 @@ public class DevelopmentCommunications {
 		boolean bs = tx.getBuySell();
 		
 		devTrade.add(new CloseLimitTrade(txID, bs));
-		devTrade.add(new CloseLimitTrade(txID, bs));
 	}
 	
 	public void getBuffer(ArrayList<Order> ret)
@@ -33,5 +33,10 @@ public class DevelopmentCommunications {
 			ret.add(devTrade.get(0));
 			devTrade.remove(0);
 		}
+	}
+	
+	public void writeBuffer(ArrayList<Order> matchedTrades, ArrayList<Order> cancelledTrades) // Should for now output to a file.
+	{
+		
 	}
 }
