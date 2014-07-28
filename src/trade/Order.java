@@ -9,6 +9,11 @@ public class Order
 		buysell = BuySell;
 	}
 	
+	public Order()
+	{
+		
+	}
+	
 	public boolean getBuySell()	// Returns whether the trade is a buy (1) or a sell (0)
 	{
 		return buysell;
