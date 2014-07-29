@@ -64,4 +64,9 @@ public class LimitTrade extends Trade implements Comparable<LimitTrade>{
 	{
 		return price;
 	}
+
+	public static String toJson(LimitTrade LMT) {
+		String json = "'{'LimitTrade':";
+		return json;
+	}
 }

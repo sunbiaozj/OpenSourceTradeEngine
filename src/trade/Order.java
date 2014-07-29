@@ -1,17 +1,14 @@
 package trade;
 
-public class Order 
+import java.io.Serializable;
+
+public class Order implements Serializable
 {
-	private boolean buysell;	// Holds whether the trade is a buy (1) or a sell (0)
+	protected boolean buysell;	// Holds whether the trade is a buy (1) or a sell (0)
 	
 	public Order(boolean BuySell)
 	{
 		buysell = BuySell;
-	}
-	
-	public Order()
-	{
-		
 	}
 	
 	public boolean getBuySell()	// Returns whether the trade is a buy (1) or a sell (0)
